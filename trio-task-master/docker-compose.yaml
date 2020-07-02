@@ -7,8 +7,10 @@ services:
                        - target: 5000
                          published: 5000
                          protocol: tcp
+                environment:
+                       - DATABASE_URI=${DATABASE_URI}
                 deploy:
-                         replicas 2          
+                         replicas: 2       
         db:
                 image: andrem132/trio-task-db
                 build: ./db
