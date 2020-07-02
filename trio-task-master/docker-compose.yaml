@@ -1,13 +1,16 @@
 version: "3.7"
 services: 
         flask-app: 
+                image: andrem132/trio-task-flaskapp
                 build: ./flask-app
                 ports: 
                        - target: 5000
                          published: 5000
                          protocol: tcp
-                         
+                deploy:
+                         replicas 2          
         db:
+                image: andrem132/trio-task-db
                 build: ./db
                 ports: 
                        - target: 3306
